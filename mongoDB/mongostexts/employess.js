@@ -1,0 +1,89 @@
+db.employess.insertMany([
+   
+   
+    {
+    _id:1,
+    name:"Sam",
+    pid:01,
+    oid:111,
+    salary:25000,
+    des:"devlpr" 
+    },
+    
+    {
+        _id:2,
+        name:"Max",
+        pid:01,
+        oid:111,
+        salary:75000,
+        des:"Manager" 
+        },
+        
+    {
+        _id:3,
+        name:"Dean",
+        pid:02,
+        oid:222,
+        salary:25000,
+        des:"devlpr" 
+        },
+        {
+            _id:4,
+            name:"Max",
+            pid:02,
+            oid:222,
+            salary:85000,
+            des:"Manager" 
+            },
+            {
+                _id:5,
+                name:"Dan",
+                pid:02,
+                oid:222,
+                salary:25000,
+                des:"devlpr" 
+                },
+            {
+                _id:6,
+                name:"Nat",
+                pid:02,
+                oid:222,
+                salary:75000,
+                des:"Manager" 
+                },
+                {
+                    _id:7,
+                    name:"Kit",
+                    pid:02,
+                    oid:333,
+                    salary:25000,
+                    des:"devlpr" 
+                    },
+                    {
+                        _id:8,
+                        name:"Tam",
+                        pid:03,
+                        oid:333,
+                        salary:85000,
+                        des:"Manager" 
+                        },
+                        {
+                            _id:9,
+                            name:"Tia",
+                            pid:03,
+                            oid:333,
+                            salary:25000,
+                            des:"devlpr" 
+                            },
+                        {
+                            _id:10,
+                            name:"Ria",
+                            pid:03,    
+                            oid:333,
+                         salary:75000,
+                            des:"Manager" 
+                            },
+
+    
+
+])

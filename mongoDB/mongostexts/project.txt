@@ -1,0 +1,137 @@
+db.project.insertMany([{
+   id:011,
+    pname:"ATT",
+    pid:01,
+    domain:"sap",
+    workers:[1,2],
+    
+},
+    {
+        _id:022,
+         pname:"TMob",
+    pid:02,
+    domain:"oracle",
+        workers:[3,4,5,6]
+
+    },
+     {
+        _id:033,
+         pname:"Volvo",
+    pid:03,
+    domain:"oracle",
+        workers:[7,8,9,10]
+
+    }
+    
+    ]);
+//cost incurred by each project
+    db.project.aggregate([{$lookup:{from:"employess",
+                            localField:"workers",
+                            foreignField:"_id",
+                            as:"EmployeesInThisProject"}},
+                            {
+    $unwind: "$EmployeesInThisProject" 
+    },
+                            { $match:{}},
+                            {$group:{_id:"$pname","TotalSalInvested":{$sum:"$EmployeesInThisProject.salary"}}}])
+
+//Max salary incurred by each project
+    db.project.aggregate([{$lookup:{from:"employess",
+                            localField:"workers",
+                            foreignField:"_id",
+                            as:"EmployeesInThisProject"}},
+                            {
+    $unwind: "$EmployeesInThisProject" 
+    },
+                            { $match:{}},
+                            {$group:{_id:"$pname","MaxSalInvested":{$max:"$EmployeesInThisProject.salary"}}}])
+
+//Min salary in each project
+    db.project.aggregate([{$lookup:{from:"employess",
+                            localField:"workers",
+                            foreignField:"_id",
+                            as:"EmployeesInThisProject"}},
+                            {
+    $unwind: "$EmployeesInThisProject" 
+    },
+                            { $match:{}},
+                            {$group:{_id:"$pname","MinSalInvested":{$min:"$EmployeesInThisProject.salary"}}}])
+
+//all devlprs in each project
+db.project.aggregate([{$lookup:{from:"employess",
+                            localField:"workers",
+                            foreignField:"_id",
+                            as:"EmployeesInThisProject"}},
+                            {
+    $unwind: "$EmployeesInThisProject" 
+    },
+                            { $match:{"EmployeesInThisProject.des":"devlpr"}},
+                            {$project:{_id:0,"EmployeesInThisProject.des":1,pname:1,"EmployeesInThisProject.name":1}}]).pretty();
+
+
+
+//display all Managers in each project
+
+db.project.aggregate([{$lookup:{from:"employess",
+                            localField:"workers",
+                            foreignField:"_id",
+                            as:"EmployeesInThisProject"}},
+                            {
+    $unwind: "$EmployeesInThisProject" 
+    },
+                            { $match:{"EmployeesInThisProject.des":"Manager"}},
+                            {$project:{_id:0,"EmployeesInThisProject.des":1,pname:1,"EmployeesInThisProject.name":1}}]).pretty();
+
+
+
+//No. Of managers in each project
+db.project.aggregate([{$lookup:{from:"employess",
+                            localField:"workers",
+                            foreignField:"_id",
+                            as:"EmployeesInThisProject"}},
+                            {
+    $unwind: "$EmployeesInThisProject" 
+    },
+                            { $match:{"EmployeesInThisProject.des":"Manager"}},
+                            {$group:{_id:"$pname","No Of Managers":{$sum:1}}}]).pretty();
+
+
+//cost incurred by each company
+
+ db.organization.aggregate([{$lookup:{from:"employess",
+    localField:"workers",
+    foreignField:"_id",
+    as:"EmployeesInThisProject"}},{
+$unwind: "$EmployeesInThisProject" 
+},
+    { $match:{}},
+    {$group:{_id:"$oname","TotalSalInvested":{$sum:"$EmployeesInThisProject.salary"}}}])
+   ])
+
+   //Max cost incurred by each company
+
+ db.organization.aggregate([{$lookup:{from:"employess",
+    localField:"workers",
+    foreignField:"_id",
+    as:"EmployeesInThisProject"}},{
+$unwind: "$EmployeesInThisProject" 
+},
+    { $match:{}},
+    {$group:{_id:"$oname","MaxSalInvested":{$max:"$EmployeesInThisProject.salary"}}}])
+   ])
+   
+   
+   //Min cost incurred by each company
+
+ db.organization.aggregate([{$lookup:{from:"employess",
+    localField:"workers",
+    foreignField:"_id",
+    as:"EmployeesInThisProject"}},{
+$unwind: "$EmployeesInThisProject" 
+},
+    { $match:{}},
+    {$group:{_id:"$oname","MinSalInvested":{$min:"$EmployeesInThisProject.salary"}}}])
+   ])
+
+
+                            

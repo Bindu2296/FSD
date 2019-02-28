@@ -1,0 +1,66 @@
+db.projects.insertMany([
+   
+   
+    {
+    id:1,
+    name:"Sam",
+    pname:"dapps",
+    pid:121,
+    domain:"sap",
+    salary:25000,
+    des:"devlpr" 
+    },
+    {
+      id:2,
+    name:"Dean",
+    pname:"dapps",
+    pid:121,
+    domain:"sap",
+    salary:20000,
+    des:"testr" 
+   
+    },
+     {
+      id:3,
+    name:"Jar",
+    pname:"dapps",
+    pid:121,
+    domain:"sap",
+    salary:26000 ,
+    des:"devlpr" 
+  
+    },
+
+   { id:4,
+    name:"Eve",
+     pname:"eproj",
+    pid:122,
+    domain:"oracle",
+    salary:75000,
+    des:"devlpr" 
+ 
+    },
+    {
+      id:5,
+    name:"Matt",
+     pname:"eproj",
+    pid:122,
+    domain:"oracle",
+    salary:50000,
+
+    }
+
+    
+]);
+
+db.projects.update({id:5},{des:"testr"}); //updating the des to the last row
+db.projects.find({des:"testr"}).pretty(); //displays all emplyees w/ the des testr
+db.projects.find({pid:122},{_id:0}).pretty(); //displays all emplyees w/ the pid 122
+db.projects.find({salary:{$in:[20000,30000]}}).pretty(); //displays all emplyees w/ the sal b/w 20k and 30k
+db.projects.find({des:"testr"},{_id:0,name:1,pname:1,salary:1})).sort({salary:-1}).pretty(); //displays all emplyees w/ the des testr and displays only mentioned fields  and sorts based on salary in desc. order 
+db.projects.find({des:"testr"},{_id:0,name:1,pname:1,salary:1})).sort({salary:-1}).skip(1).pretty(); //displays all emplyees w/ the des testr and displays only mentioned fields  and sorts based on salary in desc. order 
+db.projects.updateMany({},{"des":"occupation"}); //updating the des to occupation
+db.projects.find({$and:{salary:{$gt:20000},salary:{$lt:30000}}).pretty();
+
+
+

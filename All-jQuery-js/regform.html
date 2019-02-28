@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>
+            Register | Jquery
+        </title>
+        <link rel="stylesheet" href='style.css'></link>
+        <script type="text/javascript" src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
+        <script type="text/javascript" src="reg-form.js"></script>
+    </head>
+    <header>
+        <h2><input type="button"  id="slide-toggle" value="Register" /></h2>
+    </header>
+    <body>
+        <div style='display:none' id='reg-form-content' align="center">
+            <div id='error-message'></div>
+            <form action="Welcome.html" method="post">
+
+              <input type="text" id='username' placeholder="Your Name" class='input' value=""/>
+             <input type="text" id='email' placeholder="Email-id" class='input' value=""/>
+              <input type="text" id='password' placeholder="Password" class='input' value=""/>
+
+
+                <input type="submit" id='login' value="Login"/>
+            </form>
+        </div>
+    </body>
+</html>

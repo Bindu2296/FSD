@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+       <title>
+            DL2 
+        </title>
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/redmond/jquery-ui.min.css'>
+        <script type='text/javascript' src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
+        <script type='text/javascript' src='https://code.jquery.com/ui/1.12.1/jquery-ui.min.js'></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script> 
+        <script type='text/javascript' src='jquery3.js'></script>
+        <script type='text/javascript' src='jqlib.js'></script>
+        <script src="dl2.js" ></script>              
+    </head>
+  
+<body>
+        <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#popMessage">
+        Show popup
+      </button><br><br>
+      '
+      <div class="card" id='card' style='width: 50em'>
+        <div class="card-header" align="center">Your Info</div>
+    <div card="card-body">  <div  class="row">
+      <div class="col-md-4">
+<img class="card-img-top img-fluid" src="Tulips.jpg" /></div>
+        <div id="valite" class="card-text">
+</div></div>
+        </div>
+      </div>
+      <!-- Modal -->
+      <div class="modal" id="popMessage">
+        <div class="modal-dialog">
+          <div class="modal-content">
+          
+            <div class="modal-body">
+                    <div class='col-md-4 col offset-4 '  >
+                            <form id="frm-registration">
+                                    <label  for='name'>Name</label>
+                                    <input type='text' class='form-control' id='name' name='name'/>
+                                    
+                                    
+                                    <label for='dob'>DOB</label>
+                                    <input type='date' class='form-control' id='dob' name='dob'/>
+                                   
+                                    
+                                    <label for='address'>Address</label>
+                                    <input type='textarea' class='form-control' id='address' name='address'/>
+                                 
+                                    <label for='dlnum'>DL No: </label>
+                                    <input type='text' class='form-control' id='dlnum' name='dlnum' />
+
+                                    <input type="button" class='btn btn-primary' name='sbt-register' id='sbt-register' value='Register' />
+                                
+                            </form>     
+                        </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+            </div>
+          </div>
+        </div>
+      </div>
+</body>
+</html>

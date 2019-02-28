@@ -1,0 +1,15 @@
+{
+  "name": "employees",
+  "version": "1.0.0",
+  "description": "",
+  "main": "employees.js",
+  "scripts": {
+    "start": "node employees.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4"
+  }
+}

@@ -1,0 +1,53 @@
+db.employes.insertMany([
+   
+   
+    {
+    _id:1,
+    name:"Sam",
+    salary:25000,
+    des:"devlpr" 
+    },
+    {
+      _id:2,
+    name:"Dean",
+    salary:20000,
+    des:"testr" 
+   
+    },
+     {
+      _id:3,
+    name:"Jar",
+    salary:26000 ,
+    des:"devlpr" 
+  
+    },
+
+   { _id:4,
+    name:"Eve",
+    salary:75000,
+    des:"devlpr" 
+ 
+    },
+   
+
+    
+]);
+
+
+//queries
+
+db.proj.aggregate([{$lookup:{from:"employes",
+                            localField:"workers",
+                            foreignField:"_id",
+                            as:"EmployeesInThisProject"}}])
+
+//to find the total sal invested in each projects
+db.proj.aggregate([{$lookup:{from:"employes",
+                            localField:"workers",
+                            foreignField:"_id",
+                            as:"EmployeesInThisProject"}},
+                            {
+    $unwind: "$EmployeesInThisProject" 
+    },
+                            { $match:{}},
+                            {$group:{_id:"$pname","TotalSalInvested":{$sum:"$EmployeesInThisProject.salary"}}}])

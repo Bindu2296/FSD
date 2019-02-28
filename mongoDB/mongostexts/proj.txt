@@ -1,0 +1,34 @@
+db.proj.insertMany([{
+   _id:01,
+    pname:"dapps",
+    pid:121,
+    domain:"sap",
+    workers:[1,2,3]
+},
+    {
+        _id:02,
+         pname:"eproj",
+    pid:122,
+    domain:"oracle",
+        workers:[3,4]
+
+    }]);
+
+    //queries
+
+db.proj.aggregate([{$lookup:{from:"employes",
+                            localField:"workers",
+                            foreignField:"_id",
+                            as:"EmployeesInThisProject"}}])
+
+//to find the total sal invested in each projects
+
+db.proj.aggregate([{$lookup:{from:"employes",
+                            localField:"workers",
+                            foreignField:"_id",
+                            as:"EmployeesInThisProject"}},
+                            {
+    $unwind: "$EmployeesInThisProject" 
+    },
+                            { $match:{}},
+                            {$group:{_id:"$pname","TotalSalInvested":{$sum:"$EmployeesInThisProject.salary"}}}])

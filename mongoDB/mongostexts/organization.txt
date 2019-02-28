@@ -1,0 +1,33 @@
+db.organization.insertMany([{
+   _id:01,
+    oname:"IBM",
+    oid:111,
+     workers:[1,2]
+},
+    {
+        _id:02,
+    oname:"Cogniznt",
+oid:222,
+ workers:[3,4,5,6]
+
+    },
+     {
+        _id:03,
+    oname:"Wipro",
+   oid:333,
+    workers:[7,8,9,10]
+
+    }
+    
+    ]);
+
+
+     db.organization.aggregate([{$lookup:{from:"employess",
+    localField:"workers",
+    foreignField:"_id",
+    as:"EmployeesInThisProject"}},{
+$unwind: "$EmployeesInThisProject" 
+},
+    { $match:{}},
+    {$group:{_id:"$oname","TotalSalInvested":{$sum:"$EmployeesInThisProject.salary"}}}])
+   ])
