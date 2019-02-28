@@ -1,0 +1,17 @@
+{
+  "name": "pro-emp-jasmine",
+  "version": "1.0.0",
+  "description": "",
+  "main": "do.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "jasmine": "^3.3.1",
+    "jasmine-node": "^1.16.2"
+  }
+}
